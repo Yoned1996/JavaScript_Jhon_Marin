@@ -7,50 +7,79 @@ var calculadora = {
 	calculadora.punto()
 	calculadora.simbolo()
 	calculadora.clear()
-
 	},
+
 	clear:function(){
+		
 		on=document.getElementById("on")
-		on.addEventListener("click",function(){
+		on.addEventListener("mousedown",function(){
+			document.getElementById("on").style="transform:scale(0.95,0.95)"
 			display.innerHTML=0
 			digito_uno=localStorage.setItem('digito_1',JSON.stringify(""))
 			digito_dos=localStorage.setItem('digito_2',JSON.stringify(""))
 			resultado=localStorage.setItem('resultado',JSON.stringify(""))
 		})
+		on.addEventListener("mouseout",function(e){
+			document.getElementById("on").style="transform:scale(1,1)"
+		})
 		
 	},
 	operaciones:function(resultado){
+		
+	
 		suma=document.getElementById("mas")
-		suma.addEventListener("click",function(e){
+		suma.addEventListener("mousedown",function(e){
 			digito_uno=localStorage.setItem('digito_1',JSON.stringify(digito))
 			display.textContent=""
 			digito=0;
 			operacion="+"
+			document.getElementById("mas").style="transform:scale(0.95,0.95)"
 		})
-		menos.addEventListener("click",function(e){
+		
+
+		menos.addEventListener("mousedown",function(e){
 			digito_uno=localStorage.setItem('digito_1',JSON.stringify(digito))
 			display.textContent=""
 			digito=0;
 			operacion="-"
+			document.getElementById("menos").style="transform:scale(0.95,0.95)"
 		})
-		por.addEventListener("click",function(e){
+		por.addEventListener("mousedown",function(e){
 			digito_uno=localStorage.setItem('digito_1',JSON.stringify(digito))
 			display.textContent=""
 			digito=0;
 			operacion="*"
+			document.getElementById("por").style="transform:scale(0.95,0.95)"
 		})
-		dividido.addEventListener("click",function(e){
+		dividido.addEventListener("mousedown",function(e){
 			digito_uno=localStorage.setItem('digito_1',JSON.stringify(digito))
 			display.textContent=""
 			digito=0;
 			operacion="/"
+			document.getElementById("dividido").style="transform:scale(0.95,0.95)"
 		})
 		igual=document.getElementById("igual")
-		igual.addEventListener("click",function(e){
+		igual.addEventListener("mousedown",function(e){
 			digito_dos=localStorage.setItem("digito_2",JSON.stringify(digito))
 			display.textContent=""
 			digito=0;
 			calculadora.resolver()
+			document.getElementById("igual").style="transform:scale(0.95,0.95)"
+		})
+		igual.addEventListener("mouseout",function(e){
+			document.getElementById("igual").style="transform:scale(1,1)"
+		})
+		suma.addEventListener("mouseout",function(e){
+			document.getElementById("mas").style="transform:scale(1,1)"
+		})
+		menos.addEventListener("mouseout",function(e){
+			document.getElementById("menos").style="transform:scale(1,1)"
+		})
+		por.addEventListener("mouseout",function(e){
+			document.getElementById("por").style="transform:scale(1,1)"
+		})
+		dividido.addEventListener("mouseout",function(e){
+			document.getElementById("dividido").style="transform:scale(1,1)"
 		})
 		
 		
@@ -94,11 +123,11 @@ var calculadora = {
 		nueve= document.getElementById("9"),
 		cero= document.getElementById("0"),
 	
-		uno.addEventListener("click",function(e){
+		uno.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
-
+			document.getElementById("1").style="transform:scale(0.95,0.95)"
 			if (punto_d==1) {
 				numero()
 			}else{
@@ -117,12 +146,13 @@ var calculadora = {
 					display.textContent=digito	
 				}
 			}
+
 		})
-		dos.addEventListener("click",function(e){
+		dos.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
-
+			document.getElementById("2").style="transform:scale(0.95,0.95)"
 			if (punto_d==1) {
 				numero()
 			}else{
@@ -142,10 +172,11 @@ var calculadora = {
 				}
 			}
 		})
-		tres.addEventListener("click",function(e){
+		tres.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("3").style="transform:scale(0.95,0.95)"
 
 			if (punto_d==1) {
 				numero()
@@ -165,11 +196,11 @@ var calculadora = {
 				}
 			}
 		})
-		cuatro.addEventListener("click",function(e){
+		cuatro.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
-
+			document.getElementById("4").style="transform:scale(0.95,0.95)"
 			if (punto_d==1) {
 				numero()
 			}else{
@@ -188,10 +219,11 @@ var calculadora = {
 				}
 			}
 		})
-		cinco.addEventListener("click",function(e){
+		cinco.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("5").style="transform:scale(0.95,0.95)"
 
 			if (punto_d==1) {
 				numero()
@@ -212,10 +244,11 @@ var calculadora = {
 				}
 			}
 		})
-		seis.addEventListener("click",function(e){
+		seis.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("6").style="transform:scale(0.95,0.95)"
 
 			if (punto_d==1) {
 				numero()
@@ -236,10 +269,11 @@ var calculadora = {
 				}
 			}
 		})
-		siete.addEventListener("click",function(e){
+		siete.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("7").style="transform:scale(0.95,0.95)"
 
 			if (punto_d==1) {
 				numero()
@@ -260,10 +294,11 @@ var calculadora = {
 				}
 			}
 		})
-		ocho.addEventListener("click",function(e){
+		ocho.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("8").style="transform:scale(0.95,0.95)"
 
 			if (punto_d==1) {
 				numero()
@@ -284,10 +319,11 @@ var calculadora = {
 				}
 			}
 		})
-		nueve.addEventListener("click",function(e){
+		nueve.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			punto_d=display.innerText.indexOf('.')
+			
 
 			if (punto_d==1) {
 				numero()
@@ -313,13 +349,14 @@ var calculadora = {
 					display.textContent=digito	
 				}
 			}
-			
+			document.getElementById("9").style="transform:scale(0.95,0.95)"
 		})
-		cero.addEventListener("click",function(e){
+		cero.addEventListener("mousedown",function(e){
 			resultado= JSON.parse(localStorage.getItem("resultado"));
 			resultado=String(resultado).length
 			display =document.getElementById("display")
 			punto_d=display.innerText.indexOf('.')
+			document.getElementById("0").style="transform:scale(0.95,0.95)"
 			if (punto_d	==1) {
 				
 				numero()
@@ -353,12 +390,48 @@ var calculadora = {
 
 			
 		})
-		
+		uno.addEventListener("mouseout",function(e){
+			document.getElementById("1").style="transform:scale(1,1)"
+		})
+		dos.addEventListener("mouseout",function(e){
+			document.getElementById("2").style="transform:scale(1,1)"
+		})
+		tres.addEventListener("mouseout",function(e){
+			document.getElementById("3").style="transform:scale(1,1)"
+		})
+		cuatro.addEventListener("mouseout",function(e){
+			document.getElementById("4").style="transform:scale(1,1)"
+		})
+		cinco.addEventListener("mouseout",function(e){
+			document.getElementById("5").style="transform:scale(1,1)"
+		})
+		seis.addEventListener("mouseout",function(e){
+			document.getElementById("6").style="transform:scale(1,1)"
+		})
+		siete.addEventListener("mouseout",function(e){
+			document.getElementById("7").style="transform:scale(1,1)"
+		})
+		ocho.addEventListener("mouseout",function(e){
+			document.getElementById("8").style="transform:scale(1,1)"
+		})
+		nueve.addEventListener("mouseout",function(e){
+			document.getElementById("9").style="transform:scale(1,1)"
+		})
+		cero.addEventListener("mouseout",function(e){
+			document.getElementById("0").style="transform:scale(1,1)"
+		})
+
+
+
+
+
+
+				
 	},
 	punto:function(){
 		display =document.getElementById("display"),
 		punto=document.getElementById("punto");
-		punto.addEventListener("click",function(e){
+		punto.addEventListener("mousedown",function(e){
 			
 			if(display.innerText.indexOf('.') != -1){
 					
@@ -366,14 +439,19 @@ var calculadora = {
 				display.textContent=display.textContent+"."
 				
 			}
+			document.getElementById("punto").style="transform:scale(0.95,0.95)"
 		})
+		punto.addEventListener("mouseout",function(e){
+			document.getElementById("punto").style="transform:scale(1,1)"
+		})
+
 	},
 	
 	simbolo:function(){
 		simbolo=document.getElementById("sign");
 		display =document.getElementById("display"),
-		simbolo.addEventListener("click",function(){
-			// sign="".string()
+		simbolo.addEventListener("mousedown",function(){
+		document.getElementById("simbolo").style="transform:scale(0.95,0.95)"// sign="".string()
 			
 			if(display.innerText.indexOf('-') == -1){
 				if (display.textContent != 0) {
@@ -386,6 +464,10 @@ var calculadora = {
 				display.textContent=positivo
 			}
 		})
+		simbolo.addEventListener("mouseout",function(e){
+			document.getElementById("simbolo").style="transform:scale(1,1)"
+		})
+
 	},
 }
 
